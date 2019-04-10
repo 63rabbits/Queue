@@ -12,17 +12,17 @@ typedef enum QueueOption {
 
 typedef struct Queue {
     DLL_t *list;
-} Queue_t;
+} QUEUE_t;
 
 //////////////////////////////////////////////////
-Queue_t *createQueue(void);
-bool destroyQueue(Queue_t *Q, QUEUE_OPTION_e option);
-bool clearQueue(Queue_t *Q, QUEUE_OPTION_e option);
-bool enQueue(Queue_t *Q, void *element);
-void *deQueue(Queue_t *Q);
-bool isEmptyQueue(Queue_t *Q);
-void *findElementOnQueue(Queue_t *Q, int (*comp)(void*, void*), void *element);
-void *findMinOnQueue(Queue_t *Q, int (*comp)(void*, void*));
-void *findMaxOnQueue(Queue_t *Q, int (*comp)(void*, void*));
+QUEUE_t *createQueue(void);
+bool destroyQueue(QUEUE_t *Q, QUEUE_OPTION_e option);
+bool clearQueue(QUEUE_t *Q, QUEUE_OPTION_e option);
+bool enQueue(QUEUE_t *Q, void *element);
+void *deQueue(QUEUE_t *Q);
+bool isEmptyQueue(QUEUE_t *Q);
+void *findElementOnQueue(QUEUE_t *Q, int (*comp)(void*, void*), void *element);
+void *findMinOnQueue(QUEUE_t *Q, int (*comp)(void*, void*));
+void *findMaxOnQueue(QUEUE_t *Q, int (*comp)(void*, void*));
 
 #endif

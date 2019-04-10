@@ -6,8 +6,8 @@
 #include "Queue.h"
 
 //////////////////////////////////////////////////
-Queue_t *createQueue() {
-    Queue_t *queue = malloc(sizeof(Queue_t));
+QUEUE_t *createQueue() {
+    QUEUE_t *queue = malloc(sizeof(QUEUE_t));
     if (queue == NULL) return NULL;
     queue->list = createDLList();
     if (queue->list == NULL) {
@@ -17,7 +17,7 @@ Queue_t *createQueue() {
     return queue;
 }
 
-bool destroyQueue(Queue_t *Q, QUEUE_OPTION_e option) {
+bool destroyQueue(QUEUE_t *Q, QUEUE_OPTION_e option) {
     // Block illegal parameters.
     if (Q == NULL) return false;
     
@@ -36,7 +36,7 @@ bool destroyQueue(Queue_t *Q, QUEUE_OPTION_e option) {
     return true;
 }
 
-bool clearQueue(Queue_t *Q, QUEUE_OPTION_e option) {
+bool clearQueue(QUEUE_t *Q, QUEUE_OPTION_e option) {
     // Block illegal parameters.
     if (Q == NULL) return false;
     
@@ -55,31 +55,31 @@ bool clearQueue(Queue_t *Q, QUEUE_OPTION_e option) {
     return result;
 }
 
-bool enQueue(Queue_t *Q, void *element) {
+bool enQueue(QUEUE_t *Q, void *element) {
     // Block illegal parameters.
     if (Q == NULL) return false;
     
     return insertDLList(Q->list, element);
 }
 
-void *deQueue(Queue_t *Q) {
+void *deQueue(QUEUE_t *Q) {
     if (Q == NULL) return NULL;
     return pullDLList(Q->list);
 }
 
-bool isEmptyQueue(Queue_t *Q) {
+bool isEmptyQueue(QUEUE_t *Q) {
     if (Q == NULL) return true;
     return isEmptyDLList(Q->list);
 }
 
-void *findElementOnQueue(Queue_t *Q, int (*comp)(void*, void*), void *element) {
+void *findElementOnQueue(QUEUE_t *Q, int (*comp)(void*, void*), void *element) {
     return findElementOnDLList(Q->list, comp, element);
 }
 
-void *findMinOnQueue(Queue_t *Q, int (*comp)(void*, void*)) {
+void *findMinOnQueue(QUEUE_t *Q, int (*comp)(void*, void*)) {
     return findMinOnDLList(Q->list, comp);
 }
 
-void *findMaxOnQueue(Queue_t *Q, int (*comp)(void*, void*)) {
+void *findMaxOnQueue(QUEUE_t *Q, int (*comp)(void*, void*)) {
     return findMaxOnDLList(Q->list, comp);
 }
