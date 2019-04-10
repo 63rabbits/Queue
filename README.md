@@ -1,3 +1,4 @@
 # Queue
 
-Queue using dualy-linked list.
+Queue using using [Dualy-Linked List](https://github.com/63rabbits/DualyLinkedList).
+
