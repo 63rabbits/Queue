@@ -55,6 +55,10 @@ void test() {
         }
     }
     
+    printf("*** peek [%s] ***\n", __func__);
+    Element_t *head = peekQueue(Q);
+    printf("peek value : %d\n", head->value);
+
     printf("*** find min/max [%s] ***\n", __func__);
     Element_t *min = findMinOnQueue(Q, comp);
     printf("min value : %d\n", min->value);

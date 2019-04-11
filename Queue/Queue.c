@@ -65,6 +65,10 @@ bool isEmptyQueue(QUEUE_t *Q) {
     return isEmptyDLList(Q->list);
 }
 
+void *peekQueue(QUEUE_t *Q) {
+    return peekElementHeadOnList(Q->list);
+}
+
 void *findElementOnQueue(QUEUE_t *Q, int (*comp)(void*, void*), void *element) {
     return findElementOnDLList(Q->list, comp, element);
 }
