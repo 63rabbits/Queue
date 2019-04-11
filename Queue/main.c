@@ -38,7 +38,7 @@ void test() {
     int numOfValues = 15;
     int count = 0;
     
-    Queue_t *Q = createQueue();
+    QUEUE_t *Q = createQueue();
     
     printf("*** enqueue [%s] ***\n", __func__);
     count = 0;

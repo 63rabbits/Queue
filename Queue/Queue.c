@@ -21,16 +21,11 @@ bool destroyQueue(QUEUE_t *Q, QUEUE_OPTION_e option) {
     // Block illegal parameters.
     if (Q == NULL) return false;
     
-    bool result = false;
-    
-    result = clearQueue(Q, option);
-    if (!result) {
-        return false;
-    }
+    bool result = clearQueue(Q, option);
+    if (!result) return false;
+
     result = destroyDLList(Q->list, DLL_OPTION_NONE);
-    if (!result) {
-        return false;
-    }
+    if (!result) return false;
     free(Q);
     
     return true;
@@ -40,16 +35,14 @@ bool clearQueue(QUEUE_t *Q, QUEUE_OPTION_e option) {
     // Block illegal parameters.
     if (Q == NULL) return false;
     
-    bool result = false;
-    
     DLL_t *list = Q->list;
-    if (list != NULL) {
-        if (option == QUEUE_OPTION_WITH_ELEMENT) {
-            result = clearDLList(list, DLL_OPTION_WITH_ELEMENT);
-        }
-        else {
-            result = clearDLList(list, DLL_OPTION_NONE);
-        }
+    if (list == NULL) return false;
+    bool result = false;
+    if (option == QUEUE_OPTION_WITH_ELEMENT) {
+        result = clearDLList(list, DLL_OPTION_WITH_ELEMENT);
+    }
+    else {
+        result = clearDLList(list, DLL_OPTION_NONE);
     }
     
     return result;
